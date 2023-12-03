@@ -36,15 +36,18 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
   }
 
   void _onChanged(String value, int index) {
-    if (value.length == 1) {
-      FocusScope.of(context).nextFocus();
-    }
-    if (_isValid() && index == 5) {
-      FocusScope.of(context).unfocus();
-    }
     setState(() {
       codes[index] = value; // 값이 변경될 때마다 저장
     });
+
+    if (_isValid() && index == 5) {
+      FocusScope.of(context).unfocus();
+      return;
+    }
+    if (!_isValid() && value.length == 1) {
+      FocusScope.of(context).nextFocus();
+      return;
+    }
   }
 
   @override

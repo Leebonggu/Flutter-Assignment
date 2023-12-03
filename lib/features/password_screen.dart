@@ -17,7 +17,7 @@ class PasswordScreen extends StatefulWidget {
 class _PasswordScreenState extends State<PasswordScreen> {
   final TextEditingController _passwordController = TextEditingController();
   String _password = '';
-  bool _isHidden = false;
+  bool _isHidden = true;
 
   void _onScaffoldTap() {
     FocusScope.of(context).unfocus();
@@ -105,7 +105,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   labelText: 'Password',
                   labelStyle: const TextStyle(
                     color: Colors.black, // 원하는 색상으로 설정
-                    fontSize: Sizes.size20,
+                    fontSize: Sizes.size16,
                   ),
                   suffix: Row(
                     mainAxisSize: MainAxisSize.min,

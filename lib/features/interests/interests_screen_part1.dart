@@ -4,8 +4,44 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_assignment_3/constants/gaps.dart';
 import 'package:tiktok_assignment_3/constants/sizes.dart';
+import 'package:tiktok_assignment_3/features/interests/interests_screen_part2.dart';
 import 'package:tiktok_assignment_3/features/interests/widgets/text_with_icon.dart';
 import 'package:tiktok_assignment_3/shared/app_bar.dart';
+
+List<String> interests = [
+  'Art',
+  'Music',
+  'Technology',
+  'Cooking',
+  'Sports',
+  'Reading',
+  'Travel',
+  'Photography',
+  'Fashion',
+  'Gaming',
+  'Writing',
+  'Fitness',
+  'Movies',
+  'Design',
+  'DIY',
+  'Gardening',
+  'Animals',
+  'Dance',
+  'Science',
+  'Cars',
+  'History',
+  'Meditation',
+  'Yoga',
+  'Languages',
+  'Astronomy',
+  'Hiking',
+  'Food',
+  'Poetry',
+  'Volunteering',
+  'Architecture',
+  'Fishing',
+  'Collecting',
+];
 
 class InterestsScreenPart1 extends StatefulWidget {
   const InterestsScreenPart1({super.key});
@@ -22,7 +58,7 @@ class _InterestsScreenPart1State extends State<InterestsScreenPart1> {
     if (!_isValid()) return;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const InterestsScreenPart1(),
+        builder: (context) => const InterestsScreenPart2(),
       ),
     );
   }
@@ -41,6 +77,10 @@ class _InterestsScreenPart1State extends State<InterestsScreenPart1> {
 
   bool _isValid() {
     return _selected.isNotEmpty && _selected.length >= 3;
+  }
+
+  bool _isSelected(String value) {
+    return _selected.contains(value);
   }
 
   void handleSelected(String value) {
@@ -83,7 +123,90 @@ class _InterestsScreenPart1State extends State<InterestsScreenPart1> {
               ),
               Gaps.v4,
               const Divider(),
-              Gaps.v4
+              Gaps.v20,
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.vertical,
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: Sizes.size10,
+                    mainAxisSpacing: Sizes.size10,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      for (String interest in interests)
+                        GestureDetector(
+                          onTap: () => handleSelected(interest),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size24,
+                              horizontal: Sizes.size16,
+                            ),
+                            decoration: BoxDecoration(
+                              color: _selected.contains(interest)
+                                  ? Colors.blue.shade700
+                                  : Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(
+                                Sizes.size32,
+                              ),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.topRight,
+                                    // child: Text(
+                                    //   _selected.contains(interest) ? interest : '',
+                                    //   style: TextStyle(
+                                    // color: _selected.contains(interest)
+                                    //     ? Colors.white
+                                    //     : Colors.black,
+                                    //     fontWeight: FontWeight.bold,
+                                    //   ),
+                                    // ),
+                                    child: Opacity(
+                                      opacity: _isSelected(interest) ? 1 : 0,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: Sizes.size8,
+                                        ),
+                                        child: Visibility(
+                                          visible: _isSelected(interest),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.circleCheck,
+                                            color: _isSelected(interest)
+                                                ? Colors.white
+                                                : Colors.black,
+                                            size: Sizes.size20,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Text(
+                                      interest,
+                                      style: TextStyle(
+                                        color: _isSelected(interest)
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
