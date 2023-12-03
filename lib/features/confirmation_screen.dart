@@ -133,12 +133,17 @@ class _ConfirmationScreenState extends State<ConfirmationScreen> {
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                   child: Padding(
-                      padding: const EdgeInsets.only(top: Sizes.size16),
-                      child: FaIcon(
+                    padding: const EdgeInsets.only(top: Sizes.size16),
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 300),
+                      opacity: _isValid() ? 1 : 0,
+                      child: const FaIcon(
                         FontAwesomeIcons.circleCheck,
-                        color: _isValid() ? Colors.green : Colors.white,
-                        size: Sizes.size24,
-                      )),
+                        color: Colors.green,
+                        size: Sizes.size20,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
