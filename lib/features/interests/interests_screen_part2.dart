@@ -66,6 +66,7 @@ class _InterestsScreenPart2State extends State<InterestsScreenPart2> {
   final List<String> _selected = [];
 
   void _onPressTap() {
+    if (!_isValid()) return;
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const End(),
@@ -151,19 +152,45 @@ class _InterestsScreenPart2State extends State<InterestsScreenPart2> {
         ),
         bottomNavigationBar: BottomAppBar(
           child: Padding(
-            padding: MediaQuery.of(context).viewInsets,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: Sizes.size16,
-                vertical: Sizes.size16,
-              ),
-              child: CupertinoButton(
-                minSize: 60,
-                onPressed: _onPressTap,
-                color: _isValid() ? Colors.black : Colors.grey.shade400,
-                borderRadius: BorderRadius.circular(Sizes.size96),
-                child: const Text('Next'),
-              ),
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size12,
+              horizontal: Sizes.size24,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: _onPressTap,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: Sizes.size16,
+                      horizontal: Sizes.size24,
+                    ),
+                    decoration: BoxDecoration(
+                      color: _isValid() ? Colors.black : Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size32,
+                      ),
+                      border: Border.all(color: Colors.grey.shade200),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 10,
+                          offset: Offset(0, 5),
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      'Next',
+                      style: TextStyle(
+                        color: _isValid() ? Colors.white : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
