@@ -61,7 +61,10 @@ class _InterestsScreenPart1State extends State<InterestsScreenPart1> {
                   color: Colors.grey.shade600,
                 ),
               ),
-              Gaps.v40,
+              const Padding(
+                padding: EdgeInsets.all(8),
+                child: Divider(),
+              )
             ],
           ),
         ),
