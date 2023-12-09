@@ -1,4 +1,6 @@
 import 'package:assignment4/constants/sizes.dart';
+import 'package:assignment4/features/activity/activity_screen.dart';
+import 'package:assignment4/features/search/search_screen.dart';
 import 'package:assignment4/navigation/widgets/nav_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,8 +24,35 @@ class _MainNavState extends State<MainNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: const Text('body'),
+      body: Stack(
+        children: [
+          Offstage(
+            offstage: _selectedIndex != 0,
+            child: const Center(
+              child: Text("Home"),
+            ),
+          ),
+          Offstage(
+            offstage: _selectedIndex != 1,
+            child: const SearchScreen(),
+          ),
+          Offstage(
+            offstage: _selectedIndex != 2,
+            child: const Center(
+              child: Text("Edit"),
+            ),
+          ),
+          Offstage(
+            offstage: _selectedIndex != 3,
+            child: const ActivityScreen(),
+          ),
+          Offstage(
+            offstage: _selectedIndex != 4,
+            child: const Center(
+              child: Text("Profile"),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
