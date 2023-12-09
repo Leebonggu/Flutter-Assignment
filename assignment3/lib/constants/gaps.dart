@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_assignment_3/constants/sizes.dart';
+import 'package:assignment3/constants/sizes.dart';
 
 class Gaps {
   // Vertical Gaps
