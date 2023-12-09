@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_assignment_3/constants/gaps.dart';
-import 'package:tiktok_assignment_3/constants/sizes.dart';
-import 'package:tiktok_assignment_3/features/interests/widgets/intereset_button.dart';
+import 'package:assignment3/constants/gaps.dart';
+import 'package:assignment3/constants/sizes.dart';
+import 'package:assignment3/features/interests/widgets/intereset_button.dart';
 
 class InterestList extends StatefulWidget {
   final List<String> list;

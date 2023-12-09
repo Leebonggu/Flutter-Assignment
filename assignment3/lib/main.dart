@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_assignment_3/constants/sizes.dart';
-import 'package:tiktok_assignment_3/features/confirmation_screen.dart';
+import 'package:assignment3/constants/sizes.dart';
+import 'package:assignment3/features/confirmation_screen.dart';
 
 void main() {
   runApp(const MyApp());

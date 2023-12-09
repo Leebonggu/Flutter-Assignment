@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tiktok_assignment_3/constants/gaps.dart';
-import 'package:tiktok_assignment_3/constants/sizes.dart';
-import 'package:tiktok_assignment_3/features/password_screen.dart';
-import 'package:tiktok_assignment_3/shared/app_bar.dart';
+import 'package:assignment3/constants/gaps.dart';
+import 'package:assignment3/constants/sizes.dart';
+import 'package:assignment3/features/password_screen.dart';
+import 'package:assignment3/shared/app_bar.dart';
 
 class ConfirmationScreen extends StatefulWidget {
   const ConfirmationScreen({super.key});

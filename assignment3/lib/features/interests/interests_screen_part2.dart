@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tiktok_assignment_3/constants/gaps.dart';
-import 'package:tiktok_assignment_3/constants/sizes.dart';
-import 'package:tiktok_assignment_3/features/end.dart';
-import 'package:tiktok_assignment_3/features/interests/widgets/interest_list.dart';
-import 'package:tiktok_assignment_3/shared/app_bar.dart';
+import 'package:assignment3/constants/gaps.dart';
+import 'package:assignment3/constants/sizes.dart';
+import 'package:assignment3/features/end.dart';
+import 'package:assignment3/features/interests/widgets/interest_list.dart';
+import 'package:assignment3/shared/app_bar.dart';
 
 List<String> musics = [
   'Pop',

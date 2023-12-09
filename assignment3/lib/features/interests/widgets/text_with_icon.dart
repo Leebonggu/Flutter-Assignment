@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tiktok_assignment_3/constants/gaps.dart';
+import 'package:assignment3/constants/gaps.dart';
 
 class TextWithIcon extends StatelessWidget {
   final String message;

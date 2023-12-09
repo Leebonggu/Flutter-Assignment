@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_assignment_3/shared/app_bar.dart';
+import 'package:assignment3/shared/app_bar.dart';
 
 class End extends StatelessWidget {
   const End({super.key});
