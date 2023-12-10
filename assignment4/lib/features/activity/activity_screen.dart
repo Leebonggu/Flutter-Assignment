@@ -1,8 +1,9 @@
 import 'package:assignment4/constants/sizes.dart';
+import 'package:assignment4/shared/custom_list_title.dart';
 import 'package:flutter/material.dart';
 
 final tabs = [
-  '산책',
+  'All',
   '요가',
   '독서',
   '음악',
@@ -12,6 +13,57 @@ final tabs = [
   '자전거',
   '등산',
   '수영',
+];
+
+final contents = [
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '요가',
+  },
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '요가',
+  },
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '요가',
+  },
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '요가',
+  },
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '독서',
+  },
+  {
+    'nickname': 'powerbong1',
+    'name': 'bongu1',
+    'followers': '25.5k',
+    'imgUrl': 'https://picsum.photos/250?image=1',
+    'subsubtitle': 'Come in',
+    'category': '음악',
+  },
 ];
 
 class ActivityScreen extends StatelessWidget {
@@ -56,18 +108,17 @@ class ActivityScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: ListView(
           children: [
             for (var tab in tabs)
-              Center(
-                child: Text(
-                  tab,
-                  style: const TextStyle(
-                    fontSize: Sizes.size20,
-                    fontWeight: FontWeight.bold,
+              for (var content in contents)
+                if (tab == content['category'])
+                  CustomListTile(
+                    nickname: content['nickname']!,
+                    name: content['name']!,
+                    imgUrl: content['imgUrl']!,
+                    titleSide: Text(content['subsubtitle']!),
                   ),
-                ),
-              ),
           ],
         ),
       ),

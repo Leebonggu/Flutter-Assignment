@@ -1,4 +1,3 @@
-import 'package:assignment4/constants/gaps.dart';
 import 'package:assignment4/constants/sizes.dart';
 import 'package:assignment4/shared/custom_list_title.dart';
 import 'package:flutter/cupertino.dart';
@@ -151,7 +150,8 @@ class _SearchScreenState extends State<SearchScreen> {
               CustomListTile(
                 nickname: item['nickname']!,
                 name: item['name']!,
-                followers: item['followers']!,
+                subsubtitle: '${item['followers']} K Followers',
+                trailingText: 'Follow',
                 imgUrl: item['imgUrl']!,
                 titleSide: const FaIcon(
                   FontAwesomeIcons.circleCheck,
