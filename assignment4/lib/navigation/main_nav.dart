@@ -13,7 +13,7 @@ class MainNav extends StatefulWidget {
 }
 
 class _MainNavState extends State<MainNav> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 1;
 
   void _onTap(int index) {
     setState(() {
