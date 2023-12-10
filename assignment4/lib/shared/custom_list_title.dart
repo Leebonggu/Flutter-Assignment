@@ -76,47 +76,50 @@ class CustomListTile extends StatelessWidget {
                 ),
               ),
               Gaps.v10,
-              subsubtitle != null
-                  ? Text(
-                      '$subsubtitle',
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: Sizes.size16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  : const SizedBox(),
+              Visibility(
+                visible: subsubtitle != null,
+                child: Text(
+                  '$subsubtitle',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: Sizes.size16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              )
             ],
           ),
         ),
       ),
-      trailing: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(
-          vertical: Sizes.size2,
-        ),
-        width: Sizes.size96,
-        height: Sizes.size32,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(
-            Sizes.size8,
+      trailing: Visibility(
+        visible: trailingText != null,
+        child: Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(
+            vertical: Sizes.size2,
           ),
-          border: Border.all(
-            color: Colors.grey.shade300,
-            width: Sizes.size1,
+          width: Sizes.size96,
+          height: Sizes.size32,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              Sizes.size8,
+            ),
+            border: Border.all(
+              color: Colors.grey.shade300,
+              width: Sizes.size1,
+            ),
           ),
-        ),
-        child: GestureDetector(
+          child: GestureDetector(
             onTap: _onTap,
-            child: trailingText != null
-                ? Text(
-                    trailingText ?? 'follow',
-                    style: const TextStyle(
-                      fontSize: Sizes.size14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                : const SizedBox()),
+            child: Text(
+              trailingText ?? 'follow',
+              style: const TextStyle(
+                fontSize: Sizes.size14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
